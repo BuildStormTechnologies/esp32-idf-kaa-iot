@@ -152,11 +152,20 @@ void app_main()
     systemInitConfig_st sysConfig = {
         .systemEventCallbackHandler = app_eventsCallBackHandler,
         .pAppVersionStr = APP_VERSION,
-        .pWifiSsidStr = TEST_WIFI_SSID,
-        .pWifiPwdStr = TEST_WIFI_PASSWORD,
+       // .pWifiSsidStr = TEST_WIFI_SSID,
+       // .pWifiPwdStr = TEST_WIFI_PASSWORD,
         .maxMetaElements_u8 = 4,
         .maxTelemetryElements_u8 = 2,
         .maxCommands_u8 = 2,
+        .s_ethernetConfig={
+            .spiFreq_u32 = 24000000,
+            .mosi_s8 = 13,
+            .miso_s8 = 12,
+            .sck_s8 = 14,
+            .cs_s8 = 15,
+            .intr_s8 = 22,
+            .reset_s8 = -1,
+        },
         .s_mqttClientConfig = {
             .pUriStr = KAA_URI,
             .port_u16 = KAA_PORT,
